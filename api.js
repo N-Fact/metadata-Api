@@ -4,7 +4,7 @@ const fs = require('fs')
 const { getTotalSupply } = require('./contract')
 const baseUrl = 'https://dwarfknights.s3.eu-central-1.amazonaws.com/nft/';
 const request = require('request');
-const baseImagePath = "/images/"
+const baseImagePath = "./images/"
 
 const app = express();
 
@@ -40,7 +40,8 @@ app.get('/image/:id', async(req, res) => {
 
     const id = req.params.id
     const filepath = baseUrl+id+".png"
-    const imgpath =__dirname+ baseImagePath+id+".png"
+    const imgpath =baseImagePath+id+".png"
+    console.log(imgpath)
     var supply = await getTotalSupply()
     
     if (parseInt(id) <= parseInt(supply)) {
