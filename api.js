@@ -47,10 +47,18 @@ app.get('/image/:id', async(req, res) => {
         try {
             if (req.params.id != 'favicon.ico') {
                 download(filepath, imgpath, function(){
-                    res.sendFile(imgpath)
-                    // fs.unlink(imgpath, function (err) {
-                    //     console.log('File deleted!');
-                    // });
+                    res.sendFile(imgpath, function (err) {
+                        if (err) {
+                          next(err);
+                        } else {
+                          try {
+                            fs.unlink(imgpath); 
+                          } catch(e) {
+                            console.log("error removing ", imgpath); 
+                          }
+                        }
+                      });
+               
                   });
             }
         } catch (error) {
