@@ -1,5 +1,6 @@
 const CONTRACT_ADDRESS = "0x0a8ce38791ff9d6c5e8d8e20c13a7c939098936e"
-const API_URL="https://speedy-nodes-nyc.moralis.io/7b2cdb644152ec2b77693bc4/avalanche/mainnet"
+//const API_URL="https://speedy-nodes-nyc.moralis.io/7b2cdb644152ec2b77693bc4/avalanche/mainnet"
+const API_URL="https://api.avax.network/ext/bc/C/rpc"
 const Web3 = require('web3')
 const contract = require("./artifacts/contracts/dwarf.sol/dwarfknights.json");
 
